@@ -15,5 +15,6 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
     (r'^auth/', include('demo.auth.urls')),
-    (r'^$', redirect_to, {'url':'/auth/login'})
+    (r'^$', redirect_to, {'url':'/auth/login'}),
+    (r'^blogs/', include('demo.blogs.urls')),
 )
