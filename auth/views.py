@@ -20,7 +20,7 @@ def login_user(request):
                 if user is not None:
                     if user.is_active:
                         login(request, user)
-                        state = 'You are successfully logged in!'
+                        return HttpResponseRedirect('/blogs')
                     else:
                         state = 'Your account is not active. Please contact site admin.'
                 else:
@@ -34,5 +34,5 @@ def login_user(request):
 def logout(request):
     from django.contrib.auth.views import logout
     logout(request)
-    return HttpResponse('You are logged out click <a href"/">here</a> to login')
+    return HttpResponse('You are logged out click <a href="/">here</a> to login')
 
