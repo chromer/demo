@@ -31,3 +31,8 @@ def login_user(request):
     else:
         return HttpResponseRedirect('/blogs')
 
+def logout(request):
+    from django.contrib.auth.views import logout
+    logout(request)
+    return HttpResponse('You are logged out click <a href"/">here</a> to login')
+

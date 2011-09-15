@@ -17,4 +17,5 @@ urlpatterns = patterns('',
     (r'^auth/', include('demo.auth.urls')),
     (r'^$', redirect_to, {'url':'/auth/login'}),
     (r'^blogs/', include('demo.blogs.urls')),
+    (r'^logout/$', 'demo.auth.views.logout')
 )
