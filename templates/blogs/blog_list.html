@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<p>logged in as: {{user}}</p>
 {% for blog in blogs %}
 <div class='twipsies well'>
     <div style='position:relative;'>
@@ -9,5 +9,9 @@
     </div>
 </div>
 {% endfor %}
-
+<form action="add/" method="post" class="form">
+    {% csrf_token %}
+    {{blog_form.as_p}}
+    <input type="submit" value="ADD">
+</form>
 {% endblock %}
