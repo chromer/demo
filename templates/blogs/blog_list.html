@@ -12,6 +12,6 @@
 <form action="add/" method="post" class="form">
     {% csrf_token %}
     {{blog_form.as_p}}
-    <input type="submit" value="ADD">
+    <input type="submit" value="ADD" class="btn primary">
 </form>
 {% endblock %}

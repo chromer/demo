@@ -8,7 +8,7 @@
         {% block extra-head %}
         {% endblock %}
     </head>
-    <body>
+    <body style="padding-top: 40px;">
         <div class="topbar">
             <div class="fill">
                 <div class="container">
@@ -24,12 +24,12 @@
                     </form>
                     <ul class="nav secondary-nav">
                         <li class="menu">
-                            <a href="#" class="menu">Dropdown</a>
+                            <a href="#" class="menu">{{user}}</a>
                             <ul class="menu-dropdown">
                                 <li><a href="#">Secondary link</a></li>
                                 <li><a href="#">Something else here</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#">Another link</a></li>
+                                <li>{% if user.is_active %}<a href="/logout/">Logout</a>{% else %}<a href="/">Login</a>{% endif %}</li>
                             </ul>
                         </li>
                     </ul>
