@@ -1,17 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
-<p>logged in as: {{user}}</p>
+
 {% for blog in blogs %}
-<div class='twipsies well'>
+<div class="alert-message block-message success">
     <div style='position:relative;'>
         <h3>{{blog.title}}</h3>
         <p>{{blog.content}}</p>
     </div>
 </div>
 {% endfor %}
+<hr />
 <form action="add/" method="post" class="form">
     {% csrf_token %}
-    {{blog_form.as_p}}
-    <input type="submit" value="ADD" class="btn primary">
+    <fieldset>
+        <legend>Add a new blog here.</legend>
+        <!--{{blog_form.as_p}}-->
+        <div class="clearfix">
+            <label for="Title">Title</label>
+            <div class="input">
+                <input class="xlarge" type="text" size="30" name="title" />
+            </div>
+        </div>
+        <div class="clearfix">
+            <label for="Content">Content</label>
+            <div class="input">
+                <textarea id="textarea" class="xxlarge" name="content"></textarea>
+            </div>
+        </div>
+        <div class="actions">
+            <input class="btn primary" type="submit" value="Submit Changes" />
+            <input class="btn" type="reset" value="Cancel" />
+        </div>
+    <fieldset>
 </form>
 {% endblock %}
