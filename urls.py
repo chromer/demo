@@ -1,6 +1,8 @@
 from django.conf.urls.defaults import *
 from django.views.generic.simple import redirect_to
 
+import settings
+
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
@@ -17,5 +19,6 @@ urlpatterns = patterns('',
     (r'^auth/', include('demo.auth.urls')),
     (r'^$', redirect_to, {'url':'/auth/login'}),
     (r'^blogs/', include('demo.blogs.urls')),
-    (r'^logout/$', 'demo.auth.views.logout')
+    (r'^logout/$', 'demo.auth.views.logout'),
+    (r'^static_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 )
